@@ -1,0 +1,129 @@
+/* ----------  header ---------- */
+.navbar {
+  margin-bottom: 0px;
+}
+
+/* ----------  welcome page ---------- */
+.welcome {
+  background: url("/images/grapevine.jpg");
+  background-attachment: fixed;
+  background-position: left;
+  height: 565px;
+  width: 110%;
+  left: -5%;
+  margin: 0 auto;
+}
+
+.w1-intro {
+  color: white;
+  position: absolute;
+  margin-top: 200px;
+  text-align: center;
+}
+
+.w1-title {
+  font-family: helvetica;
+  font-weight: bolder;
+}
+
+.w1-search-form {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.welcome-search {
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+/* ----------  registration page ---------- */
+.reg {
+  margin-top: 40px;
+}
+
+/* ----------  results page ---------- */
+.major-pub {
+  /*border: 1px solid black;*/
+  text-align: left;
+  margin-top: 40px;
+  height: 533px;
+  overflow: auto;
+}
+
+.domain-name {
+  font-size: 12px;
+}
+
+.reddit-article {
+  font-size: 16px;
+}
+
+.reddit-score {
+  font-size: 12px;
+  text-align: right;
+}
+
+#score {
+  text-align: right;
+}
+
+#pic-column {
+  /*border: 1px solid black;*/
+  margin-top: 40px;
+}
+
+#pic-row {
+  max-width: 473px;
+  height: 200px;
+  overflow: auto;
+  overflow-y: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.insta-div {
+  /*border: 1px solid black;*/
+  margin-top: 7px;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.insta-user {
+  margin-bottom: 3px;
+  font-weight: bolder;
+}
+
+.insta-pic {
+  display: inline-block;
+}
+
+#tweet-column {
+  /*border: 1px solid black;*/
+  margin-top: 40px;
+  height: 287px;
+  overflow: auto;
+}
+
+  .tweet-retrieved {
+
+  }
+    .avatar {
+      display: inline-block;
+    }
+
+    .twitter-user {
+      margin-left: 5px;
+    }
+
+      .user-tag {
+        margin-top: 1px;
+      }
+
+    .twitter {
+      margin-top: 7px;
+      text-align: left;
+    }

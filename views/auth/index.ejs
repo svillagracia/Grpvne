@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+
+<div class="col-md-6 col-md-offset-3 reg">
+  <h4 class="reg-title">Register for your free grpvne.co account:</h4>
+  <div class="body">
+    <form>
+      <div class="form-group">
+        <label for="first-name">First Name</label>
+        <input type="text" class="form-control" id="fn-reg" placeholder="John">
+      </div>
+    <div class="form-group">
+      <label for="last-name">Last Name</label>
+      <input type="text" class="form-control" id="ln-reg" placeholder="Smith">
+    </div>
+      <div class="form-group">
+        <label for="email-reg">Email address</label>
+        <input type="email" class="form-control" id="email-reg" placeholder="john.smith@grpvne.co">
+      </div>
+      <div class="form-group">
+        <label for="password-reg">Password</label>
+        <input type="password" class="form-control" id="password-reg" placeholder='Not "password."'>
+      </div>
+      <div class="form-group">
+        <label for="password-confirm">Comfirm Password</label>
+        <input type="password" class="form-control" id="password-confirm" placeholder='Did you make it "password"?'>
+        <hr>
+        <button type="submit" class="btn btn-danger" action="/" method="post">Complete Registration</button>
+        <a class="btn btn-success pull-right" href="#logModal" data-toggle="modal">I'm already on Grpvne</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<% include ../partials/footer %>

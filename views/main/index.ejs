@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+<div class="col-md-12 welcome container">
+  <div class="w1-intro col-md-4 col-md-offset-4">
+    <h1 class="w1-title">Welcome to Grpvne</h1>
+    <p calss="w1-subtitle">The aggregator for information from everywhere and everyone.</p>
+    <a href="/auth" class="btn btn-md btn-danger">Register</a>
+  </div>
+  <div class="w1-search-form">
+    <div class="welcome-search col-md-12">
+      <form id="news-search" class="form-inline" action="/results/" method="get">
+        <div class="form-group">
+          <input type="text" name="q" class="form-control" placeholder="Search for stories...">
+        </div>
+        <button type="submit" class="btn btn-default btn-success">Go!</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>
