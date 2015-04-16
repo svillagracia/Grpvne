@@ -47,6 +47,4 @@ app.get('/',function(req,res){
   res.render('main/index');
 });
 
-app.listen(3000,function(){
-  console.log('Goliath Online. Port: 3000...');
-});
+app.listen(process.env.PORT || 3000);
