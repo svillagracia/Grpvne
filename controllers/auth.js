@@ -75,10 +75,10 @@ router.post('/register',function(req,res){
         res.redirect('register');
       }
   })
-  // .catch(function(error){
-  //   console.log('error',error);
-  //   res.send(error);
-  // })
+  .catch(function(error){
+    console.log('error',error);
+    res.send(error);
+  })
 });
 
 // GET /logout
