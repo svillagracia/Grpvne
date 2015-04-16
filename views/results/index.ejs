@@ -1,6 +1,7 @@
 <% include ../partials/header %>
 
 <div class="row container">
+
   <!-- Left side of page -->
   <div class="major-pub col-md-5 col-md-offset-1">
     <div class="table-responsive">
@@ -10,7 +11,7 @@
           <td class="reddit-news">
             <label class="pull-right domain-name"><%= redditResults[i].data.domain %></label>
             <br>
-            <a class="reddit-article" href="<%= redditResults[i].data.url %>"><%= redditResults[i].data.title %></a>
+            <a class="reddit-article" href="<%= value.data.url %>" data-toggle="modal"><%= redditResults[i].data.title %></a>
             <br>
             <label class="reddit-score"><%= redditResults[i].data.score %>  </label> <i id="score" class="glyphicon glyphicon-thumbs-up"></i>
               <small class="article-comments pull-right"><a href="#"><i class="glyphicon glyphicon-comment"></i>  <em>Leave a comment</em></a></small>
@@ -49,7 +50,8 @@
                 <br><small class="user-tag">@<%= tweet.user.screen_name %></small>
               </label>
               <p class="twitter"><%= tweet.text %></p>
-              <p class="fav-retweet"><i class="glyphicon glyphicon-retweet"></i>  <%= tweet.retweet_count %> <strong>|</strong> <i class="glyphicon glyphicon-star"></i>  <%= tweet.favorite_count %><small class="date pull-right"><%= tweet.created_at %></small></p>
+              <p class="fav-retweet"><i class="glyphicon glyphicon-retweet"></i>  <%= tweet.retweet_count %> <strong>|</strong> <i class="glyphicon glyphicon-star"></i>  <%= tweet.favorite_count %>
+              <small class="date pull-right"><%= tweet.created_at %></small></p>
             </td>
           </tr>
           <% }); %>

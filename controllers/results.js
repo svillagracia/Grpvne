@@ -2,9 +2,13 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
+var bodyParser = require('body-parser');
 var async = require('async');
 var Twitter = require('twitter');
 var Instagram = require('instagram-node-lib');
+
+// middleware
+router.use(bodyParser.urlencoded({extended: false}));
 
 // Instagram API ID and Secret
 Instagram.set('client_id', process.env.INSTA_KEY);
@@ -20,6 +24,7 @@ var client = new Twitter({
 
 // GET query entered - Begins call to Reddit, Twitter, and Instagram.
 router.get('/',function(req,res){
+  if(req.getUser()){
 
   // Object to push data into.
   var locals={};
@@ -36,7 +41,7 @@ router.get('/',function(req,res){
 
     /* Async for Reddit. async.concat calling two subreddits simultaneously.
     Concatenating both subbreddit JSONs into one array.*/
-    async.concat(['r/worldnews','r/news'],function(subR,callback){
+    async.concat(['r/worldnews'],function(subR,callback){
       request({
         url:'http://www.reddit.com/'+subR+'/search.json',
         qs:myData
@@ -70,6 +75,7 @@ router.get('/',function(req,res){
       lang: 'en'
     },function(error, tweets, response){
       if(error) throw error;
+      console.log(error);
       // console.log(tweets.statuses);
       locals.tweetRes=tweets.statuses;
       next();
@@ -99,11 +105,29 @@ router.get('/',function(req,res){
       res.render('results/index',locals);
       // res.send(locals);
     }
-  } // Close GET.
+  }
 
+  // Redirect back to homepage and display message if not logged in.
   async.parallel([getRedditNewsData,getTweets,getPics],renderPage);
+  }else{
+    req.flash('danger','Please log in to access Grpvne.');
+    res.redirect('/');
+  }
 
+}); // Close GET.
 
+// GET for show page.
+router.get('/:id',function(req,res){
+  var query = req.params.id;
+    var url = 'http://www.reddit.com/r/worldnews/comments/'+query+'.json';
+      request(url,function(error,response,data){
+        if(!error && response.statusCode === 200){
+          var article = JSON.parse(data);
+          res.render('results/show', article);
+        }else{
+          console.log('error',error,response);
+        }
+      })
 });
 
 module.exports = router;

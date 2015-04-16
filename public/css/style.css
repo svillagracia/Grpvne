@@ -1,6 +1,31 @@
+/* ----------  alerts ---------- */
+.alert {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
 /* ----------  header ---------- */
 .navbar {
   margin-bottom: 0px;
+}
+
+/* ----------  footer ---------- */
+.footer {
+  margin-top: 10px;
+}
+
+.about {
+  text-align: center;
+}
+
+/* ----------  about modal ---------- */
+.A {
+  display: inline-block;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  margin-right: 2px;
 }
 
 /* ----------  welcome page ---------- */
@@ -9,7 +34,7 @@
   background-attachment: fixed;
   background-position: left;
   height: 565px;
-  width: 110%;
+  width: 107%;
   left: -5%;
   margin: 0 auto;
 }
@@ -26,23 +51,22 @@
   font-weight: bolder;
 }
 
-.w1-search-form {
-  position: absolute;
-  background-color: rgba(0,0,0,0.5);
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 .welcome-search {
   text-align: center;
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
+/* ----------  login page ---------- */
+.log {
+  margin-top: 40px;
+  margin-bottom: 263px;
+}
+
 /* ----------  registration page ---------- */
 .reg {
   margin-top: 40px;
+  margin-bottom: 41px;
 }
 
 /* ----------  results page ---------- */
@@ -72,7 +96,6 @@
 }
 
 #pic-column {
-  /*border: 1px solid black;*/
   margin-top: 40px;
 }
 
@@ -86,7 +109,6 @@
 }
 
 .insta-div {
-  /*border: 1px solid black;*/
   margin-top: 7px;
   margin-left: 5px;
   display: inline-block;
@@ -102,7 +124,6 @@
 }
 
 #tweet-column {
-  /*border: 1px solid black;*/
   margin-top: 40px;
   height: 287px;
   overflow: auto;
@@ -126,4 +147,12 @@
     .twitter {
       margin-top: 7px;
       text-align: left;
+    }
+
+    .fav-rewtweet {
+      margin-top: 7px;
+    }
+
+    .date {
+      vertical-align: bottom;
     }

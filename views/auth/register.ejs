@@ -3,29 +3,29 @@
 <div class="col-md-6 col-md-offset-3 reg">
   <h4 class="reg-title">Register for your free grpvne.co account:</h4>
   <div class="body">
-    <form>
+    <form class="form" method="post" action="/auth/register">
       <div class="form-group">
         <label for="first-name">First Name</label>
-        <input type="text" class="form-control" id="fn-reg" placeholder="John">
+        <input type="text" class="form-control" id="fn-reg" placeholder="John" name="firstName">
       </div>
     <div class="form-group">
       <label for="last-name">Last Name</label>
-      <input type="text" class="form-control" id="ln-reg" placeholder="Smith">
+      <input type="text" class="form-control" id="ln-reg" placeholder="Smith" name="lastName">
     </div>
       <div class="form-group">
         <label for="email-reg">Email address</label>
-        <input type="email" class="form-control" id="email-reg" placeholder="john.smith@grpvne.co">
+        <input type="email" class="form-control" id="email-reg" placeholder="john.smith@grpvne.co" name="email">
       </div>
       <div class="form-group">
         <label for="password-reg">Password</label>
-        <input type="password" class="form-control" id="password-reg" placeholder='Not "password."'>
+        <input type="password" class="form-control" id="password-reg" placeholder='Not "password."' name="password">
       </div>
       <div class="form-group">
         <label for="password-confirm">Comfirm Password</label>
-        <input type="password" class="form-control" id="password-confirm" placeholder='Did you make it "password"?'>
+        <input type="password" class="form-control" id="password-confirm" placeholder='Did you make it "password"?' name="confirmPass">
         <hr>
         <button type="submit" class="btn btn-danger" action="/" method="post">Complete Registration</button>
-        <a class="btn btn-success pull-right" href="#logModal" data-toggle="modal">I'm already on Grpvne</a>
+        <a class="btn btn-success pull-right" href="/auth/login">I'm already on Grpvne</a>
       </div>
     </form>
   </div>
