@@ -45,11 +45,11 @@
           <tr>
             <td class="tweet-retrieved">
               <img class="avatar" src="<%= tweet.user.profile_image_url_https %>">
-              <label class="twitter-user">  <strong><a href="https://www.twitter.com/<%= tweet.user.screen_name %>"><%= tweet.user.name %></a></strong>
+              <label class="twitter-user">  <strong><a class="screen-name" href="https://www.twitter.com/<%= tweet.user.screen_name %>"><%= tweet.user.name %></a></strong>
                 <br><small class="user-tag">@<%= tweet.user.screen_name %></small>
               </label>
               <p class="twitter"><%= tweet.text %></p>
-              <p class="fav-retweet"><i class="glyphicon glyphicon-retweet"></i>  <%= tweet.retweet_count %> <strong>|</strong> <i class="glyphicon glyphicon-star"></i>  <%= tweet.favorite_count %>
+              <p class="fav-retweet"><i id="retweet" class="glyphicon glyphicon-retweet"></i>  <%= tweet.retweet_count %> <strong>|</strong> <i id="fav" class="glyphicon glyphicon-star"></i>  <%= tweet.favorite_count %>
               <small class="date pull-right"><%= tweet.created_at %></small></p>
             </td>
           </tr>
