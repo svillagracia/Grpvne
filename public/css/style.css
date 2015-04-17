@@ -42,6 +42,14 @@ a:hover.bout-trigger {
   margin-right: 2px;
 }
 
+.hear-it {
+  color: purple;
+}
+
+#aboutLeaf {
+  color: green;
+}
+
 /* ----------  welcome page ---------- */
 .welcome {
   background: url("/images/grapevine.jpg");
@@ -100,6 +108,10 @@ a.reddit-article {
 
 .reddit-article {
   font-size: 16px;
+}
+
+.link-info {
+  color: green;
 }
 
 .reddit-score {
@@ -184,10 +196,19 @@ a.screen-name {
 }
 
 /* ----------  article show page ---------- */
+.page-viewer {
+  border: 1px solid gray;
+  border-radius: 25px;
+  width: 1100px;
+  height: 450px;
+  max-width: 1100px;
+  max-height: 450px;
+}
+
 .show-title {
+  margin-top: 40px;
   border: none;
   text-align: center;
-  margin-top: 70px;
 }
 
 .art-button {
