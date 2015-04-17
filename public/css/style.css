@@ -135,42 +135,40 @@
   overflow: auto;
 }
 
-  .tweet-retrieved {
+.tweet-retrieved {
+  font-size: 14px;
+}
 
-  }
-    .avatar {
-      display: inline-block;
-    }
+.avatar {
+  display: inline-block;
+}
 
-    .twitter-user {
-      margin-left: 5px;
-    }
+.twitter-user {
+  margin-left: 5px;
+}
 
-      .user-tag {
-        margin-top: 1px;
-      }
+.user-tag {
+  margin-top: 1px;
+}
 
-    .twitter {
-      margin-top: 7px;
-      text-align: left;
-    }
+.twitter {
+  margin-top: 7px;
+  text-align: left;
+}
 
-    .fav-rewtweet {
-      margin-top: 7px;
-    }
+.fav-rewtweet {
+  margin-top: 7px;
+}
 
-    .date {
-      vertical-align: bottom;
-    }
+.date {
+  vertical-align: bottom;
+}
 
 /* ----------  article show page ---------- */
-.source-view {
+.show-title {
   border: none;
-  margin-top: 20px;
-  width: 1210px;
-  height: 450px;
-  max-width: 1210px;
-  max-height: 450px;
+  text-align: center;
+  margin-top: 70px;
 }
 
 .art-button {
