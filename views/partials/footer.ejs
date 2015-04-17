@@ -25,9 +25,14 @@
             we want the news. Sometimes, we want it unfiltered. In today's world, you can have both.
             Our generation has realized that the news can be more fiction than fact. Why shouldn't we
             have sources that give us more fact than fiction?</p>
-            <p>Read real news. Raw. As it should be. Or, you know... just look at <a href="/results/?q=cats">cats.</a></p>
-            <p>Hear what everyone is saying.</p>
-            <p><h4><a href="/auth/register">Hear it through the Grpvne.</a></h4></p>
+            <% if(user){ %>
+              <p>Hear what everyone is saying. Hear it through the Grpvne.</p>
+              <p>Now that you're here, <%= user.firstName %>... look at some <a href="/results/?q=cats">cats</a>!</p>
+            <% }else{ %>
+              <p>Read real news. Raw. As it should be. Or, you know... You could just look at some cats.</p>
+              <p>Hear what everyone is saying.</p>
+              <p><h4><a href="/auth/register">Hear it through the Grpvne.</a></h4></p>
+            <% } %>
         </div>
         </div>
       </div>

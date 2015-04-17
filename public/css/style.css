@@ -11,11 +11,17 @@
   margin-bottom: 0px;
 }
 
-/* ----------  footer ---------- */
-.footer {
-  margin-top: 10px;
+.logo {
+  height: 25px;
+  width: 25px;
+  margin-right: 0%;
 }
 
+.w1-search-form {
+  margin-left: 0px;
+}
+
+/* ----------  footer ---------- */
 .about {
   text-align: center;
 }
@@ -156,3 +162,39 @@
     .date {
       vertical-align: bottom;
     }
+
+/* ----------  article show page ---------- */
+.source-view {
+  border: none;
+  margin-top: 20px;
+  width: 1210px;
+  height: 450px;
+  max-width: 1210px;
+  max-height: 450px;
+}
+
+.art-button {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.article-comments {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* ----------  trellis page ---------- */
+.user-header {
+  color: purple;
+}
+
+.trellis-leaf {
+  color: green;
+}
+
+.trellis-articles {
+  margin-top: 25px;
+  width: 600px;
+  height: 500px;
+  overflow: auto;
+}

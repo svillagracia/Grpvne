@@ -1,7 +1,23 @@
+<% include ../partials/header %>
 
+<div class="viewer" class="row">
+  <div class="col-md-5 col-md-offset-">
+    <embed class="source-view" src="<%= article.url %>"></embed>
+  </div>
+</div>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h4><%= data.kind %></h4>
+  <div class="col-md-8 col-md-offset-2 article-comments">
+    <form id="trellis-form" class="form art-button" action="/profile/<%= article.id %>" method="post">
+      <input class="userId" type="hidden" value="<%= user.id %>" name="userId">
+      <input class="redditId" type="hidden" value="<%= article.id %>" name="id">
+      <input class="subreddit" type="hidden" value="<%= article.subreddit %>" name="subreddit">
+      <input class="title" type="hidden" value="<%= article.title %>" name="title">
+      <input class="url" type="hidden" value="<%= article.url %>" name="url">
+      <% if(!article.matched){ %>
+        <a id="trellBtn" type="submit"  class="btn btn-lg btn-success"><i class="glyphicon glyphicon-leaf">  </i>Add to Trellis</a>
+      <% } %>
+    </form>
   </div>
 </div>
 
+<% include ../partials/footer %>

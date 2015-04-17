@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var bodyParser = require('body-parser');
+var db = require('../models');
 var async = require('async');
 var Twitter = require('twitter');
 var Instagram = require('instagram-node-lib');
@@ -41,7 +42,7 @@ router.get('/',function(req,res){
 
     /* Async for Reddit. async.concat calling two subreddits simultaneously.
     Concatenating both subbreddit JSONs into one array.*/
-    async.concat(['r/worldnews'],function(subR,callback){
+    async.concat(['r/news','r/worldnews'],function(subR,callback){
       request({
         url:'http://www.reddit.com/'+subR+'/search.json',
         qs:myData
@@ -75,7 +76,7 @@ router.get('/',function(req,res){
       lang: 'en'
     },function(error, tweets, response){
       if(error) throw error;
-      console.log(error);
+      // console.log(error);
       // console.log(tweets.statuses);
       locals.tweetRes=tweets.statuses;
       next();
@@ -99,7 +100,7 @@ router.get('/',function(req,res){
   var renderPage = function(err){
     if(err){
       res.send('something broke on render page.');
-      console.log(err);
+      // console.log(err);
       throw err;
     }else{
       res.render('results/index',locals);
@@ -116,18 +117,36 @@ router.get('/',function(req,res){
 
 }); // Close GET.
 
-// GET for show page.
-router.get('/:id',function(req,res){
+// GET for r/worldnews show page.
+router.get('/:sub/:id',function(req,res){
+  var user = req.getUser();
+  if(user){
   var query = req.params.id;
-    var url = 'http://www.reddit.com/r/worldnews/comments/'+query+'.json';
+    var url = 'http://www.reddit.com/r/'+req.params.sub+'/comments/'+query+'.json';
       request(url,function(error,response,data){
         if(!error && response.statusCode === 200){
           var article = JSON.parse(data);
-          res.render('results/show', article);
+          var object = article[0].data.children[0].data;
+          db.article.findAll({where:{redditId:object.id}})
+          .then(function(trellis){
+            trellis.forEach(function(story){
+              if(story.userId === user.id){
+                object.matched = true;
+              }
+            })
+          res.render('results/show', {article:object});
+          }).catch(function(error){
+          object.matched = false;
+          res.render('results/show', {article:object});
+          })
         }else{
           console.log('error',error,response);
         }
       })
+  }else{
+    req.flash('danger','Please log in to access Grpvne.');
+    res.redirect('/');
+  }
 });
 
 module.exports = router;

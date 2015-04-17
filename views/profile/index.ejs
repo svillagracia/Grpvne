@@ -1,6 +1,32 @@
 <% include ../partials/header %>
 
-<h1><%= user.firstName %>'s Dashboard</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="user-header"><i class="glyphicon glyphicon-leaf trellis-leaf"></i><%= user.firstName %>'s Trellis</h1>
 
+    <!-- Article Div -->
+    <div class="trellis-articles">
+      <div class="news-list-window">
+        <div class="table-responsive">
+          <table class="table">
+          <% articleList.forEach(function(value,i){ %>
+            <tr id="saved-news">
+              <td>
+                <a id="list" href=<%= '/results/'+value.subreddit+'/'+value.redditId %>><%= value.title %>
+              </td>
+              <td>
+                <form id="remove" class="form">
+                  <input type="hidden" value="<%= value.id %>" name="id">
+                  <a href=<%='/profile/'+value.redditId %> id="rmvBtn" class="remove btn btn-danger">Prune</a>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% include ../partials/footer %>

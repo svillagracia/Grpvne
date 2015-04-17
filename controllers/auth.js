@@ -29,7 +29,7 @@ router.post('/login',function(req,res){
             };
             // If Password and email match.
             req.flash('info','You have been logged in.');
-            res.redirect('/');
+            res.redirect('/profile');
           }else{
           // If password doesn't match.
           req.flash('danger','Invalid password.')
