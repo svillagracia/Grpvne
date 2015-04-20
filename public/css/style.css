@@ -3,7 +3,8 @@
   text-align: center;
   font-weight: bold;
   font-size: 16px;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 0px;
 }
 
 /* ----------  header ---------- */
@@ -11,43 +12,80 @@
   margin-bottom: 0px;
 }
 
-.logo {
-  height: 25px;
-  width: 25px;
-  margin-right: 0%;
-}
-
-.w1-search-form {
-  margin-left: 0px;
-}
+    .w1-search-form {
+      margin-left: 0px;
+    }
 
 /* ----------  footer ---------- */
 .about {
   text-align: center;
 }
 
-a.bout-trigger {
-  color: green;
-}
+  a.bout-trigger {
+    color: green;
+  }
 
-a:hover.bout-trigger {
-  color: purple;
-}
+  a:hover.bout-trigger {
+    color: purple;
+  }
 
 /* ----------  about modal ---------- */
 .A {
   display: inline-block;
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 20px;
   margin-right: 2px;
 }
 
-.hear-it {
-  color: purple;
+  .slogan {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+  }
+
+  .hear-it {
+    color: purple;
+  }
+
+  a.hear-it:hover {
+    color: green;
+  }
+
+  .grpvne {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  #aboutLeaf {
+    color: green;
+  }
+
+/* ----------  contact modal ---------- */
+#contact-body {
+  padding: 50px;
 }
 
-#aboutLeaf {
-  color: green;
+.name {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 2px;
+}
+
+.headshot {
+  display: block;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link-contact {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 /* ----------  welcome page ---------- */
@@ -61,21 +99,21 @@ a:hover.bout-trigger {
   margin: 0 auto;
 }
 
-.w1-intro {
-  color: white;
-  position: absolute;
-  margin-top: 200px;
-  text-align: center;
-}
+  .w1-intro {
+    color: white;
+    position: absolute;
+    margin-top: 200px;
+    text-align: center;
+  }
 
-.w1-title {
-  font-family: helvetica;
-  font-weight: bolder;
-}
+    .w1-title {
+      font-family: helvetica;
+      font-weight: bolder;
+    }
 
-a.home-trellis {
-  color: purple;
-}
+    a.home-trellis {
+      color: purple;
+    }
 
 /* ----------  login page ---------- */
 .log {
@@ -90,148 +128,151 @@ a.home-trellis {
 }
 
 /* ----------  results page ---------- */
-.major-pub {
-  text-align: left;
-  margin-top: 40px;
-  height: 533px;
-  overflow: auto;
-}
+  .major-pub {
+    text-align: left;
+    margin-top: 40px;
+    height: 533px;
+    overflow: auto;
+  }
 
-.domain-name {
-  color: purple;
-  font-size: 12px;
-}
+            .domain-name {
+              color: purple;
+              font-size: 12px;
+            }
 
-a.reddit-article {
-  color: green;
-}
+            a.reddit-article {
+              color: green;
+            }
 
-.reddit-article {
-  font-size: 16px;
-}
+            .reddit-article {
+              font-size: 16px;
+            }
 
-.link-info {
-  color: green;
-}
+            .reddit-score {
+              font-size: 12px;
+              text-align: right;
+            }
 
-.reddit-score {
-  font-size: 12px;
-  text-align: right;
-}
+              #score {
+                text-align: right;
+              }
 
-#score {
-  text-align: right;
-}
+  #pic-column {
+    margin-top: 40px;
+  }
 
-#pic-column {
-  margin-top: 40px;
-}
+    #pic-row {
+      max-width: 108%;
+      height: 200px;
+      overflow: auto;
+      overflow-y: hidden;
+      display: inline-block;
+      white-space: nowrap;
+    }
 
-#pic-row {
-  max-width: 473px;
-  height: 200px;
-  overflow: auto;
-  overflow-y: hidden;
-  display: inline-block;
-  white-space: nowrap;
-}
+      .insta-div {
+        margin-top: 7px;
+        margin-left: 5px;
+        display: inline-block;
+      }
 
-.insta-div {
-  margin-top: 7px;
-  margin-left: 5px;
-  display: inline-block;
-}
+        .insta-user {
+          margin-bottom: 3px;
+          font-weight: bolder;
+        }
 
-a.name-link {
-  color: green;
-}
+          a.name-link {
+            color: green;
+          }
 
-.insta-user {
-  margin-bottom: 3px;
-  font-weight: bolder;
-}
+        .insta-pic {
+          display: inline-block;
+        }
 
-.insta-pic {
-  display: inline-block;
-}
+  #tweet-column {
+    margin-top: 40px;
+    height: 287px;
+    overflow: auto;
+  }
 
-#tweet-column {
-  margin-top: 40px;
-  height: 287px;
-  overflow: auto;
-}
+            .tweet-retrieved {
+              font-size: 14px;
+            }
 
-.tweet-retrieved {
-  font-size: 14px;
-}
+              .avatar {
+                display: inline-block;
+              }
 
-.avatar {
-  display: inline-block;
-}
+              .twitter-user {
+                margin-left: 5px;
+              }
 
-.twitter-user {
-  margin-left: 5px;
-}
+                a.screen-name {
+                  color: green;
+                }
 
-a.screen-name {
-  color: green;
-}
+              .user-tag {
+                color: purple;
+                margin-top: 1px;
+              }
 
-.user-tag {
-  color: purple;
-  margin-top: 1px;
-}
+              .twitter {
+                margin-top: 7px;
+                text-align: left;
+              }
 
-.twitter {
-  margin-top: 7px;
-  text-align: left;
-}
+              .fav-rewtweet {
+                margin-top: 7px;
+              }
 
-.fav-rewtweet {
-  margin-top: 7px;
-}
-
-.date {
-  vertical-align: bottom;
-}
+              .date {
+                vertical-align: bottom;
+              }
 
 /* ----------  article show page ---------- */
-.page-viewer {
-  border: 1px solid gray;
-  width: 1100px;
-  height: 470px;
-  max-width: 1100px;
-  max-height: 470px;
-}
+  .viewer {
+    margin-top: 0px;
+    text-align: center;
+    left: -30px;
+    width: 105%;
+  }
 
-.show-title {
-  margin-top: 40px;
-  border: none;
-  text-align: center;
-}
+    .page-viewer {
+      width: 110%;
+      height: 500px;
+      max-width: 110%;
+      max-height: 500px;
+    }
 
-.art-button {
-  vertical-align: middle;
-  display: inline-block;
-}
+  .score-domain {
+    text-align: center;
+  }
 
-.article-comments {
-  text-align: center;
-  margin-bottom: 10px;
-}
+  .article-save {
+    height: 40px;
+    max-height: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .art-button {
+    vertical-align: middle;
+    display: inline-block;
+  }
 
 /* ----------  trellis page ---------- */
-.user-header {
-  color: purple;
-}
+    .user-header {
+      color: purple;
+    }
 
-.trellis-leaf {
-  color: green;
-}
+      .trellis-leaf {
+        color: green;
+      }
 
-.trellis-articles {
-  margin-top: 25px;
-  width: 600px;
-  height: 500px;
-  overflow: auto;
-}
+    .trellis-articles {
+      margin-top: 25px;
+      width: 100%;
+      height: 500px;
+      overflow-x: hidden;
+      overflow: auto;
+    }

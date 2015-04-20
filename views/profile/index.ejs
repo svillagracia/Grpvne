@@ -1,13 +1,13 @@
 <% include ../partials/header %>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 trellis">
     <h1 class="user-header"><i class="glyphicon glyphicon-leaf trellis-leaf"></i><%= user.firstName %>'s Trellis</h1>
 
     <!-- Article Div -->
     <div class="trellis-articles">
       <div class="news-list-window">
-        <div class="table-responsive">
+        <div class="table">
           <table class="table">
           <% articleList.forEach(function(value,i){ %>
             <tr id="saved-news">

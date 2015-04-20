@@ -3,8 +3,9 @@
 <div class="row container">
 
   <!-- Left side of page -->
-  <div class="major-pub col-md-5 col-md-offset-1">
-    <div class="table-responsive">
+  <!-- reddit data -->
+  <div class="major-pub col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12">
+    <div class="table">
       <table class="table">
         <% redditResults.forEach(function(value,i){ %>
         <tr>
@@ -22,31 +23,31 @@
   </div>
 
   <!-- right side of page -->
-  <div id="pic-column" class="col-md-5 col-md-offset-1">
+  <div id="pic-column" class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12">
     <!-- row for photo feed -->
     <div id="pic-row" class="row">
     <% pics.forEach(function(value,i){ %>
       <div class="insta-div">
-        <!-- <a href="#" class="thumbnail"> -->
-          <p class="insta-user"><a class="name-link" href="https://www.instagram.com/<%= pics[i].user.username %>"><%= pics[i].user.username %></a></p>
-          <a href="<%= pics[i].link %>"><img class="insta-pic" src="<%= pics[i].images.thumbnail.url %>"></a>
-          <p><small class="insta-likes pull-right"><%= pics[i].likes.count %>  <i class="glyphicon glyphicon-star"></i></small></p>
-        </a>
+        <p class="insta-user"><a class="name-link" href="https://www.instagram.com/<%= pics[i].user.username %>"><%= pics[i].user.username %></a></p>
+        <a href="<%= pics[i].link %>"><img class="insta-pic" src="<%= pics[i].images.thumbnail.url %>"></a>
+        <p><small class="insta-likes pull-right"><%= pics[i].likes.count %>  <i class="glyphicon glyphicon-star"></i></small></p>
       </div>
     <% }); %>
     </div>
   </div>
 
-  <div id="tweet-column" class="col-md-5 col-md-offset-1">
+  <!-- twitter data -->
+  <div id="tweet-column" class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12">
     <div class="row">
-      <div class="table-responsive">
+      <div class="table">
         <table id="tweet-table" class="table">
           <% tweetRes.forEach(function(tweet,i){ %>
           <tr>
             <td class="tweet-retrieved">
               <img class="avatar" src="<%= tweet.user.profile_image_url_https %>">
               <label class="twitter-user">  <strong><a class="screen-name" href="https://www.twitter.com/<%= tweet.user.screen_name %>"><%= tweet.user.name %></a></strong>
-                <br><small class="user-tag">@<%= tweet.user.screen_name %></small>
+              <br>
+              <small class="user-tag">@<%= tweet.user.screen_name %></small>
               </label>
               <p class="twitter"><%= tweet.text %></p>
               <p class="fav-retweet"><i id="retweet" class="glyphicon glyphicon-retweet"></i>  <%= tweet.retweet_count %> <strong>|</strong> <i id="fav" class="glyphicon glyphicon-star"></i>  <%= tweet.favorite_count %>

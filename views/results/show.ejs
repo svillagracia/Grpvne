@@ -1,15 +1,22 @@
 <% include ../partials/header %>
 
-<div class="viewer" class="row">
-  <div class="col-md-12">
-      <div class="show-title">
-        <embed class="page-viewer" src="<%= article.url %>"></embed>
-        <p><span class="badge"><%= article.score %>  <i class="glyphicon glyphicon-thumbs-up"></i></span>  |  <strong><%= article.domain %></strong></p>
-      </div>
+<!-- viewer row -->
+<div class="row container">
+  <div class="col-md-12 col-sm-12 col-xs-12 viewer">
+    <embed class="page-viewer" src="<%= article.url %>"></embed>
   </div>
 </div>
+
+<!-- score and domain row -->
 <div class="row">
-  <div class="col-md-8 col-md-offset-2 article-comments">
+  <div class="col-md-12 col-sm-12 col-xs-12 score-domain">
+    <p><span class="badge"><%= article.score %>  <i class="glyphicon glyphicon-thumbs-up"></i></span>  |  <strong><%= article.domain %></strong></p>
+  </div>
+</div>
+
+<!-- bottom of page -->
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-8 col-xs-12 article-save">
     <form id="trellis-form" class="form art-button" action="/profile/<%= article.id %>" method="post">
       <input class="userId" type="hidden" value="<%= user.id %>" name="userId">
       <input class="redditId" type="hidden" value="<%= article.id %>" name="id">

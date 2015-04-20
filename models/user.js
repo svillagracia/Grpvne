@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       type:DataTypes.STRING,
       validate:{
         len:{
-          args:[1,200],
+          args:[2,200],
           msg:'Please enter your first name.'
         }
       }
@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       type:DataTypes.STRING,
       validate:{
         len:{
-          args:[1,200],
+          args:[2,200],
           msg:'Please enter your last name.'
         }
       }
@@ -26,7 +26,9 @@ module.exports = function(sequelize, DataTypes) {
     email:{
       type:DataTypes.STRING,
       validate:{
-        isEmail:true
+        isEmail:{
+          msg:'Please enter a valid email address.'
+        }
       }
     },
     password:{
@@ -34,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
       validate:{
         len:{
         args:[8,100],
-        msg:'Pleas enter a password that is at least 8 characters in length.'
+        msg:'Please enter a password that is at least 8 characters in length.'
         }
       }
     }

@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-<div class="col-md-6 col-md-offset-3 reg">
+<div class="col-md-6 col-md-offset-3 reg col-sm-3 col-sm-offset-3 col-xs-12">
   <h4 class="reg-title">Register for your free grpvne.co account:</h4>
   <div class="body">
     <form class="form" method="post" action="/auth/register">
@@ -24,8 +24,8 @@
         <label for="password-confirm">Comfirm Password</label>
         <input type="password" class="form-control" id="password-confirm" placeholder='Did you make it "password"?' name="confirmPass">
         <hr>
-        <button type="submit" class="btn btn-danger" action="/" method="post">Complete Registration</button>
-        <a class="btn btn-success pull-right" href="/auth/login">I'm already on Grpvne</a>
+        <button type="submit" class="btn btn-success" action="/" method="post">Complete Registration</button>
+        <a class="btn btn-info pull-right" href="/auth/login">Log In</a>
       </div>
     </form>
   </div>

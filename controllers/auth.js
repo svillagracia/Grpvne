@@ -76,8 +76,20 @@ router.post('/register',function(req,res){
       }
   })
   .catch(function(error){
-    console.log('error',error);
-    res.send(error);
+    if(error){
+      if(Array.isArray(error.errors)){
+        error.errors.forEach(function(errorItem){
+          req.flash('danger',errorItem.message);
+        });
+      }else{
+        req.flash('danger','Unknown error');
+        console.log('unknown error',error);
+      }
+    }else{
+      req.flash('danger','unknown error');
+      console.log('error')
+    }
+    res.redirect('register');
   })
 });
 

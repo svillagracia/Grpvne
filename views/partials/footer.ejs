@@ -4,7 +4,7 @@
 </body>
     <div class="col-md-4 col-md-offset-4 footer">
       <!-- about modal trigger -->
-      <h4 class="about"><a href="#aboutModal" class="bout-trigger" data-toggle="modal">About</a></h4>
+      <h4 class="about"><a href="#aboutModal" class="bout-trigger" data-toggle="modal">About</a>  |  <a href="#contactModal" class="bout-trigger" data-toggle="modal">Contact</a></h4>
     </div>
 
   <!-- about modal -->
@@ -12,7 +12,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-            <button type="buttone" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
             <h4 class="modal-title">About Grpvne</h4>
         </div>
         <div class="modal-body">
@@ -30,9 +30,30 @@
               <p>Now that you're here, <%= user.firstName %>... look at some <a href="/results/?q=cats">cats</a>!</p>
             <% }else{ %>
               <p>Read real news. Raw. As it should be. Or, you know... You could just look at some cats.</p>
-              <p>Hear what everyone is saying.</p>
-              <p class="hear-it"><h4><a class="hear-it" href="/auth/register">Hear it through the <i id="aboutLeaf" class="glyphicon glyphicon-leaf"></i>Grpvne.</a></h4></p>
+              <br>
+              <p class="slogan">Hear what everyone is saying.</p>
+              <p class="hear-it"><h4 class="grpvne"><a class="hear-it" href="/auth/register">Hear it through the <img class="aboutLeaf" src="/images/grapes.png">Grpvne.</a></h4></p>
             <% } %>
+        </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- about modal -->
+  <div id="contactModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="buttone" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+            <h4 class="modal-title">Contact Information</h4>
+        </div>
+        <div id="contact-body" class="modal-body">
+            <img class="headshot" src="/images/headshot.jpg">
+            <p class="link-contact"><a href="https://www.linkedin.com/in/svillagracia">LinkedIn</a>  |
+            <a href="https://www.github.com/svillagracia">Github</a>  |
+            <a href="https://about.me/svillagracia">About.me</a></p>
+            <p class="bio"><h3 class="name">Sean Villagracia</h3> is a web developer based in Seattle, Washington. If you have any
+            questions, comments, or any other inquiries please refer to his contact information above.</p>
         </div>
         </div>
       </div>
