@@ -10,9 +10,8 @@ $(function(){
         method:'DELETE',
         url:myUrl,
       }).done(function(data){
-        // console.log(data);
         removeButton.closest('tr').fadeOut(1500,function(){
-          $(this).remove();
+          $(this).remove(); // Fade out article on profile page.
         })
       });
   });
@@ -27,8 +26,15 @@ $(function(){
       url:myUrl,
       data:myData
     }).done(function(data){
-      $('#trellis-form').fadeOut(1000);
+      $('#trellis-form').fadeOut(1000); // Fade out save button on show page.
     })
+  });
+
+  // Disable spacebar in search box.
+  $('#search-box').keydown(function(e){
+    if(e.keyCode == 32){
+      return false;
+    }
   });
 
 });

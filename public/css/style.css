@@ -30,36 +30,40 @@
   }
 
 /* ----------  about modal ---------- */
-.A {
-  display: inline-block;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 20px;
-  margin-right: 2px;
+.modal-body {
+  padding: 40px;
 }
 
-  .slogan {
-    text-align: center;
-    color: green;
-    font-weight: bold;
+  .A {
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    margin-right: 2px;
   }
 
-  .hear-it {
-    color: purple;
-  }
+    .slogan {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
 
-  a.hear-it:hover {
-    color: green;
-  }
+    .hear-it {
+      color: purple;
+    }
 
-  .grpvne {
-    text-align: center;
-    padding-bottom: 10px;
-  }
+    a.hear-it:hover {
+      color: green;
+    }
 
-  #aboutLeaf {
-    color: green;
-  }
+    .grpvne {
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    #aboutLeaf {
+      color: green;
+    }
 
 /* ----------  contact modal ---------- */
 #contact-body {
@@ -245,6 +249,8 @@
     }
 
   .score-domain {
+    margin-top: 5px;
+    margin-bottom: 5px;
     text-align: center;
   }
 
@@ -252,6 +258,7 @@
     height: 40px;
     max-height: 40px;
     text-align: center;
+    margin-top: 5px;
     margin-bottom: 10px;
   }
 
