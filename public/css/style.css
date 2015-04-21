@@ -120,6 +120,66 @@
       color: purple;
     }
 
+    .down-arrow {
+      text-align: center;
+      padding-bottom: 10px;
+      color: purple;
+    }
+
+.landing1 {
+  width: 107%;
+  left: -2%;
+}
+
+  .land1-title {
+    margin-top: 70px;
+    color: purple;
+    font-family: helvetica;
+    font-weight: bolder;
+    margin-left: 10px;
+  }
+
+  .land2-3-title {
+    color: purple;
+    font-family: helvetica;
+    font-weight: bolder;
+    margin-left: 10px;
+  }
+
+  .land1-p {
+    color: green;
+    font-family: helvetica;
+    margin-left: 10px;
+  }
+
+.break {
+  background: url("/images/grapevine.jpg");
+  background-attachment: fixed;
+  background-position: left;
+  height: 150px;
+  width: 107%;
+  left: -5%;
+  margin: 0 auto;
+}
+
+.last-break {
+  text-align: center;
+  background: url("/images/grapevine.jpg");
+  background-attachment: fixed;
+  background-position: left;
+  padding-top: 5px;
+  height: 80px;
+  width: 107%;
+  left: -5%;
+  margin: 0 auto;
+}
+
+  .last-break-slogan {
+    color: white;
+    font-family: helvetica;
+    font-weight: bolder;
+  }
+
 /* ----------  login page ---------- */
 .log {
   margin-top: 40px;
@@ -238,6 +298,16 @@
     margin-top: 70px;
     margin-bottom: 130px;
   }
+
+    .instaMod-pic {
+      padding-left: auto;
+      margin-right: auto;
+    }
+
+    .insta-text {
+      white-space: normal;
+      overflow: none;
+    }
 
 /* ----------  article show page ---------- */
   .viewer {

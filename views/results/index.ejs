@@ -60,6 +60,7 @@
     </div>
   </div>
 
+<!-- mobile layout modal triggers -->
 <div class="row">
   <div class="col-xs-12 visible-xs-block mobile-triggers">
     <a href="#newsModal" class="btn btn-lg btn-block btn-primary" data-toggle="modal">News Articles</a>
@@ -68,15 +69,16 @@
   </div>
 </div>
 
+  <!-- news modal -->
   <div id="newsModal" class="modal fade">
   <% redditResults.forEach(function(value,i){ %>
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+            <label class="domain-name"><%= redditResults[i].data.domain %></label>
         </div>
         <div id="newsMod-body" class="modal-body">
-            <label class="pull-right domain-name"><%= redditResults[i].data.domain %></label>
             <br>
             <a class="reddit-article" href="/results/<%= value.data.subreddit %>/<%= value.data.id %>"><%= redditResults[i].data.title %></a>
             <br>
@@ -87,36 +89,38 @@
       <% }); %>
     </div>
 
+  <!-- photos modal -->
   <div id="picsModal" class="modal fade">
   <% pics.forEach(function(value,i){ %>
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+          <p class="insta-user"><a class="name-link" href="https://www.instagram.com/<%= pics[i].user.username %>"><%= pics[i].user.username %></a></p>
         </div>
         <div id="picMod-body" class="modal-body">
-          <p class="insta-user"><a class="name-link" href="https://www.instagram.com/<%= pics[i].user.username %>"><%= pics[i].user.username %></a></p>
-          <a href="<%= pics[i].link %>"><img class="insta-pic" src="<%= pics[i].images.low_resolution.url %>"></a>
+          <a href="<%= pics[i].link %>"><img class="instaMod-pic" src="<%= pics[i].images.low_resolution.url %>"></a>
           <p><small class="insta-likes pull-right"><%= pics[i].likes.count %>  <i class="glyphicon glyphicon-star"></i></small></p>
-          <p><%= pics[i].caption.text %></p>
+          <p class="insta-text"><%= pics[i].caption.text %></p>
         </div>
         </div>
       </div>
       <% }); %>
     </div>
 
+  <!-- tweets modal -->
   <div id="tweetsModal" class="modal fade">
   <% tweetRes.forEach(function(tweet,i){ %>
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+          <label class="twitter-user">  <strong><a class="screen-name" href="https://www.twitter.com/<%= tweet.user.screen_name %>"><%= tweet.user.name %></a></strong>
         </div>
         <div id="tweetMod-body" class="modal-body">
           <img class="avatar" src="<%= tweet.user.profile_image_url_https %>">
-          <label class="twitter-user">  <strong><a class="screen-name" href="https://www.twitter.com/<%= tweet.user.screen_name %>"><%= tweet.user.name %></a></strong>
-          <br>
           <small class="user-tag">@<%= tweet.user.screen_name %></small>
+          <br>
           </label>
           <p class="twitter"><%= tweet.text %></p>
           <p class="fav-retweet"><i id="retweet" class="glyphicon glyphicon-retweet"></i>  <%= tweet.retweet_count %> <strong>|</strong> <i id="fav" class="glyphicon glyphicon-star"></i>  <%= tweet.favorite_count %>
