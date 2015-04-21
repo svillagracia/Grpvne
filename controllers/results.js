@@ -40,6 +40,7 @@ router.get('/',function(req,res){
       t:'all'
     };
 
+    if (req.query.q == ''){res.redirect('noresults')}
     /* Async for Reddit. async.concat calling two subreddits simultaneously.
     Concatenating both subbreddit JSONs into one array.*/
     async.concat(['r/news','r/worldnews'],function(subR,callback){
@@ -75,7 +76,7 @@ router.get('/',function(req,res){
       q: req.query.q,
       lang: 'en'
     },function(error, tweets, response){
-      if(error) throw error;
+      // if(error) throw error;
       // console.log(error);
       // console.log(tweets.statuses);
       locals.tweetRes=tweets.statuses;
@@ -99,9 +100,8 @@ router.get('/',function(req,res){
   // Final function to render page and data.
   var renderPage = function(err){
     if(err){
-      res.send('something broke on render page.');
-      // console.log(err);
-      throw err;
+      res.render('main/error');
+      // throw err;
     }else{
       res.render('results/index',locals);
       // res.send(locals);
@@ -147,6 +147,10 @@ router.get('/:sub/:id',function(req,res){
     req.flash('danger','Please log in to access Grpvne.');
     res.redirect('/');
   }
+});
+
+router.get('/noresults',function(req,res){
+  res.render('results/noresults');
 });
 
 module.exports = router;

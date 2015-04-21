@@ -86,6 +86,7 @@
 }
 
 .link-contact {
+  vertical-align: middle;
   margin-top: 10px;
   text-align: center;
   font-weight: bold;
@@ -233,6 +234,11 @@
                 vertical-align: bottom;
               }
 
+  .mobile-triggers {
+    margin-top: 70px;
+    margin-bottom: 130px;
+  }
+
 /* ----------  article show page ---------- */
   .viewer {
     margin-top: 0px;
@@ -250,7 +256,7 @@
 
   .score-domain {
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     text-align: center;
   }
 
@@ -259,7 +265,7 @@
     max-height: 40px;
     text-align: center;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
   }
 
   .art-button {
@@ -283,3 +289,38 @@
       overflow-x: hidden;
       overflow: auto;
     }
+
+/* ---------- error page ---------- */
+.error {
+  margin-top: 80px;
+  text-align: center;
+  font-weight: bold;
+  color: green;
+}
+
+  .symbol {
+    color: purple;
+  }
+
+.spill {
+  display: block;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-message {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 110px;
+  font-weight: bold;
+}
+
+/* ---------- no results page ---------- */
+.nores {
+  text-align: center;
+}
+
+.no-results {
+  text-align: center;
+}

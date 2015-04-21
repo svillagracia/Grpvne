@@ -31,6 +31,8 @@ app.use(function(req,res,next){
   next();
 });
 
+// Middleware to determine which usr is logged in.
+// Also used for flash messages.
 app.use(function(req,res,next){
   res.locals.user = req.getUser();
   res.locals.alerts = req.flash();
@@ -45,6 +47,11 @@ app.use('/profile',profCtrl);
 // Render the welcome page.
 app.get('/',function(req,res){
   res.render('main/index');
+});
+
+// Render the 404 page.
+app.get('*',function(req,res){
+  res.render('main/error');
 });
 
 app.listen(process.env.PORT || 3000);
