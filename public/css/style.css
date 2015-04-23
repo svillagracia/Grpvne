@@ -322,9 +322,8 @@ a.screen-name {
   left: -3%;
 }
 
-.insta-text {
-  white-space: normal;
-  overflow: none;
+.insta-likes-mobile {
+  padding-top: 5px;
 }
 
 /* ----------  article show page ---------- */
