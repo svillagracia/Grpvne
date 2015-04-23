@@ -39,16 +39,15 @@ app.use(function(req,res,next){
   next();
 })
 
-// Controllers
-app.use('/results',resultsCtrl);
-app.use('/auth',authCtrl);
-app.use('/profile',profCtrl);
-
-
 // Render the welcome page.
 app.get('/',function(req,res){
   res.render('main/index');
 });
+
+// Controllers
+app.use('/results',resultsCtrl);
+app.use('/auth',authCtrl);
+app.use('/profile',profCtrl);
 
 // Render the 404 page.
 app.use(function(req,res){
