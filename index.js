@@ -39,10 +39,11 @@ app.use(function(req,res,next){
   next();
 })
 
-// Load routes
+// Controllers
 app.use('/results',resultsCtrl);
 app.use('/auth',authCtrl);
 app.use('/profile',profCtrl);
+
 
 // Render the welcome page.
 app.get('/',function(req,res){
@@ -50,7 +51,8 @@ app.get('/',function(req,res){
 });
 
 // Render the 404 page.
-app.get('/*',function(req,res){
+app.use(function(req,res){
+  res.status(400);
   res.render('main/error');
 });
 
