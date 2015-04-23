@@ -120,8 +120,9 @@ a.hear-it:hover {
 .title-div {
   background: rgba(0,0,0,0.4);
   padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 25px;
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .w1-title {
@@ -308,8 +309,34 @@ a.screen-name {
 
 /* ----------  mobile results div ---------- */
 .mobile-triggers {
-  margin-top: 70px;
-  margin-bottom: 130px;
+  overflow-x: hidden;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.top-story-mobile {
+  padding: 10px;
+  margin-bottom: 1%;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.first-pic-mobile {
+  padding: 1.5%;
+}
+
+.insta1 {
+  display: block;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.first-tweet-mobile {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 10px;
 }
 
 .instaMod-pic {
@@ -372,7 +399,7 @@ a.screen-name {
 .trellis-articles {
   margin-top: 25px;
   width: 100%;
-  height: 500px;
+  height: 490px;
   overflow-x: hidden;
   overflow: auto;
 }

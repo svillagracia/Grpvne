@@ -77,8 +77,6 @@ router.get('/',function(req,res){
       lang: 'en'
     },function(error, tweets, response){
       // if(error) throw error;
-      // console.log(error);
-      // console.log(tweets.statuses);
       locals.tweetRes=tweets.statuses;
       next();
     });
@@ -86,11 +84,10 @@ router.get('/',function(req,res){
 
   // API call to Instagram.
   var getPics = function(next){
-    // console.log('top of get pics');
     Instagram.tags.recent({
       name: req.query.q,
       complete: function(data){
-        console.log(data);
+        // console.log(data);
         locals.pics=data;
         next();
       }
