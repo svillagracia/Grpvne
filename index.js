@@ -50,8 +50,8 @@ app.get('/',function(req,res){
 });
 
 // Render the 404 page.
-// app.get('/*',function(req,res){
-//   res.render('main/error');
-// });
+app.get('/*',function(req,res){
+  res.render('main/error');
+});
 
 app.listen(process.env.PORT || 3000);
