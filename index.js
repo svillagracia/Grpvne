@@ -7,7 +7,7 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var resultsCtrl = require('./controllers/results');
 var authCtrl = require('./controllers/auth');
-var profCtrl = require('./controllers/profile')
+var profCtrl = require('./controllers/profile');
 
 // Configure express
 var app = express();
@@ -27,7 +27,7 @@ app.use(flash());
 app.use(function(req,res,next){
   req.getUser = function(){
     return req.session.user || false;
-  }
+  };
   next();
 });
 
@@ -37,7 +37,7 @@ app.use(function(req,res,next){
   res.locals.user = req.getUser();
   res.locals.alerts = req.flash();
   next();
-})
+});
 
 // Render the welcome page.
 app.get('/',function(req,res){
