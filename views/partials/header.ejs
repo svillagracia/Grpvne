@@ -55,10 +55,10 @@
       <!-- right side of navbar -->
       <ul class="nav navbar-nav navbar-right">
         <% if(user){ %>
-          <li><a href="/profile"><%= user.firstName %>'s Trellis</a></li>
-          <li><a href="/auth/logout">Log Out</a></li>
+          <li><a class="menu-links" href="/profile"><%= user.firstName %>'s Trellis</a></li>
+          <li><a class="menu-links" href="/auth/logout">Log Out</a></li>
         <% } else { %>
-          <li><a href="/auth/login">Log In</a></li>
+          <li><a class="menu-links" href="/auth/login">Log In</a></li>
         <% } %>
       </ul>
     </div><!-- /.navbar-collapse -->

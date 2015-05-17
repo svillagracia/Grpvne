@@ -12,7 +12,7 @@ $(function(){
       }).done(function(data){
         removeButton.closest('tr').fadeOut(1500,function(){
           $(this).remove(); // Fade out article on profile page.
-        })
+        });
       });
   });
 
@@ -27,7 +27,7 @@ $(function(){
       data:myData
     }).done(function(data){
       $('#trellis-form').fadeOut(1000); // Fade out save button on show page.
-    })
+    });
   });
 
   // Disable spacebar in search box.
@@ -39,4 +39,4 @@ $(function(){
 
 });
 
-console.log('Goliath Online.')
+console.log('Goliath Online.');
