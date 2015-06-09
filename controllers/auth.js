@@ -32,16 +32,16 @@ router.post('/login',function(req,res){
             res.redirect('/profile');
           }else{
           // If password doesn't match.
-          req.flash('danger','Invalid password.')
-          res.redirect('login')
+          req.flash('danger','Invalid password.');
+          res.redirect('login');
           }
-        })
+        });
       }else{
         // If email is not found.
-        req.flash('info','User not found. Please register.')
+        req.flash('info','User not found. Please register.');
         res.redirect('register');
       }
-  })
+  });
 });
 
 // GET Registration form.
@@ -67,11 +67,11 @@ router.post('/register',function(req,res){
   .spread(function(user,created){
       if(created){
         // res.send('new user created.');
-        req.flash('success','Account successfully created! Please log in.')
+        req.flash('success','Account successfully created! Please log in.');
         res.redirect('login');
       }else{
         // res.send('The entered email is already in use.');
-        req.flash('warning','That email is already in use. Please log in or enter a different email address.')
+        req.flash('warning','That email is already in use. Please log in or enter a different email address.');
         res.redirect('register');
       }
   })
@@ -87,17 +87,17 @@ router.post('/register',function(req,res){
       }
     }else{
       req.flash('danger','unknown error');
-      console.log('error')
+      console.log('error');
     }
     res.redirect('register');
-  })
+  });
 });
 
 // GET /logout
 // logout logged in user
 router.get('/logout',function(req,res){
   delete req.session.user;
-  req.flash('success','You have successfully ended your session. Come back soon!')
+  req.flash('success','You have successfully ended your session. Come back soon!');
   res.redirect('/');
 });
 

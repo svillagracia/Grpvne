@@ -8,6 +8,16 @@
 
 The plan of action for Grpvne was an aggregator that was for users and by users. This meant sourcing data in the most "organic" ways possible. Reddit, Twitter, and Instagram were the top considerations for user driven content. These are applications/websites that focus almost *solely* on user generated content. While, in the future, the plan is to have users of the application source content directly to the site by allowing them to post links and even self-written stories to the database, the other best option was deciding to use these three chosen APIs. This was the initial approach I ran with on the "alpha" product.
 
+### Conceptualization
+
+#### Wireframe
+
+![Imgur](http://i.imgur.com/kC9YSSul.jpg)
+
+#### Entity Relations
+
+![Imgur](http://i.imgur.com/muRggFEl.jpg)
+
 #### Coming from the Ice Box
 
 - Allow users to give a "star" to tweets, photos, and articles.
