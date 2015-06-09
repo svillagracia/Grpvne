@@ -4,6 +4,12 @@ body {
   overflow-x: hidden;
 }
 
+.btn-success {
+  color: #FFF;
+  background-color: #007C28;
+  border-color: #007C28;
+}
+
 /* ----------  alerts ---------- */
 .alert {
   text-align: center;
@@ -14,15 +20,41 @@ body {
 }
 
 /* ----------  header ---------- */
+.navbar-default {
+  background-color: #6B3243;
+  border-color: #6B3243;
+}
+
 .navbar {
   margin-bottom: 0px;
+  border-radius: 0px;
+}
+
+.navbar-default a.navbar-brand {
+  color: #578000;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #578000;
 }
 
 .w1-search-form {
   margin-left: 0px;
 }
 
+#search-box {
+  color: #FFF;
+  background: #7A374B;
+  border-color: #6B3243;
+  box-shadow: none;
+}
+
 /* ----------  footer ---------- */
+.footer {
+  margin-top: 20px;
+  background: #6B3243;
+}
+
 .about {
   text-align: center;
 }
@@ -163,6 +195,12 @@ a.home-trellis {
   color: green;
   font-family: helvetica;
   margin-left: 10px;
+}
+
+#grp1 {
+  border: 3px solid purple;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .break {

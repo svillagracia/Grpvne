@@ -40,7 +40,10 @@ router.get('/',function(req,res){
       t:'all'
     };
 
-    if (req.query.q == ''){res.redirect('noresults')}
+    if (req.query.q === '') {
+      req.flash('info','Please enter a search term.');
+      res.redirect('/');
+    }
     /* Async for Reddit. async.concat calling two subreddits simultaneously.
     Concatenating both subbreddit JSONs into one array.*/
     async.concat(['r/news','r/worldnews'],function(subR,callback){
@@ -57,7 +60,7 @@ router.get('/',function(req,res){
           console.log('error output',error,response);
           callback(error);
         }
-      })
+      });
 
     },function(err,results){
       if(err) throw err;
@@ -68,7 +71,7 @@ router.get('/',function(req,res){
       locals.redditResults=results;
       next();
     });
-  }
+  };
 
   // API call to Twitter.
   var getTweets = function(next){
@@ -80,7 +83,7 @@ router.get('/',function(req,res){
       locals.tweetRes=tweets.statuses;
       next();
     });
-  }
+  };
 
   // API call to Instagram.
   var getPics = function(next){
@@ -92,7 +95,7 @@ router.get('/',function(req,res){
         next();
       }
     });
-  }
+  };
 
   // Final function to render page and data.
   var renderPage = function(err){
@@ -103,13 +106,13 @@ router.get('/',function(req,res){
       res.render('results/index',locals);
       // res.send(locals);
     }
-  }
+  };
 
   // Redirect back to homepage and display message if not logged in.
   async.parallel([getRedditNewsData,getTweets,getPics],renderPage);
   }else{
     req.flash('danger','Please log in to access Grpvne.');
-    res.redirect('/');
+    res.render('profile/index');
   }
 
 }); // Close GET.
@@ -130,16 +133,16 @@ router.get('/:sub/:id',function(req,res){
               if(story.userId === user.id){
                 object.matched = true;
               }
-            })
+            });
           res.render('results/show', {article:object});
           }).catch(function(error){
           object.matched = false;
           res.render('results/show', {article:object});
-          })
+          });
         }else{
           console.log('error',error,response);
         }
-      })
+      });
   }else{
     req.flash('danger','Please log in to access Grpvne.');
     res.redirect('/');
