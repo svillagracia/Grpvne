@@ -16,6 +16,7 @@
 
 <!-- bottom of page -->
 <div class="row">
+  <% if(user){ %>
   <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-8 col-xs-12 article-save">
     <form id="trellis-form" class="form art-button" action="/profile/<%= article.id %>" method="post">
       <input class="userId" type="hidden" value="<%= user.id %>" name="userId">
@@ -28,6 +29,11 @@
       <% } %>
     </form>
   </div>
+  <% }else{ %>
+    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-8 col-xs-12 text-center">
+      <a href="/auth/login" class="btn btn-primary">Log in to save articles</a>
+    </div>
+  <% } %>
 </div>
 
 <% include ../partials/footer %>

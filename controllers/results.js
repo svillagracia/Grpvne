@@ -25,7 +25,6 @@ var client = new Twitter({
 
 // GET query entered - Begins call to Reddit, Twitter, and Instagram.
 router.get('/',function(req,res){
-  if(req.getUser()){
 
   // Object to push data into.
   var locals={};
@@ -110,17 +109,10 @@ router.get('/',function(req,res){
 
   // Redirect back to homepage and display message if not logged in.
   async.parallel([getRedditNewsData,getTweets,getPics],renderPage);
-  }else{
-    req.flash('danger','Please log in to access Grpvne.');
-    res.render('profile/index');
-  }
-
 }); // Close GET.
 
 // GET for r/worldnews show page.
 router.get('/:sub/:id',function(req,res){
-  var user = req.getUser();
-  if(user){
   var query = req.params.id;
     var url = 'http://www.reddit.com/r/'+req.params.sub+'/comments/'+query+'.json';
       request(url,function(error,response,data){
@@ -143,10 +135,6 @@ router.get('/:sub/:id',function(req,res){
           console.log('error',error,response);
         }
       });
-  }else{
-    req.flash('danger','Please log in to access Grpvne.');
-    res.redirect('/');
-  }
 });
 
 router.get('/noresults',function(req,res){
