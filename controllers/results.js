@@ -89,8 +89,8 @@ router.get('/',function(req,res){
     Instagram.tags.recent({
       name: req.query.q,
       complete: function(data){
-        // console.log(data);
         locals.pics=data;
+        console.log(locals.pics);
         next();
       }
     });
