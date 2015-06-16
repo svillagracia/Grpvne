@@ -90,7 +90,7 @@ router.get('/',function(req,res){
       name: req.query.q,
       complete: function(data){
         locals.pics=data;
-        console.log(locals.pics);
+        // console.log(locals.pics);
         next();
       }
     });
@@ -102,9 +102,9 @@ router.get('/',function(req,res){
       res.render('main/error');
       // throw err;
     }else{
-      res.render('results/index',locals);
-      // res.send(locals);
+      res.render('results/index');
     }
+      // res.send(locals);
   };
 
   // Redirect back to homepage and display message if not logged in.
