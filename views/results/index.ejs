@@ -1,71 +1,77 @@
 <% include ../partials/header %>
 
 <div class="row container">
-
   <!-- Left side of page -->
   <!-- reddit data -->
-  <% if(locals.redditResults == []){ %>
-    <h4>There weren't any results for your search from this source.</h4>
-  <% }else{ %>
+  <% if (redditResults.length < 1){ %>
+    <div class="major-pub col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 hidden-xs">
+      <h4>There seems to be nothing here.</h4>
+    </div>
+  <% } else { %>
     <div class="major-pub col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 hidden-xs">
       <div class="table">
         <table class="table">
-          <% redditResults.forEach(function(value,i){ %>
-          <tr>
-            <td class="reddit-news">
-              <label class="pull-right domain-name"><%= redditResults[i].data.domain %></label>
-              <br>
-              <a class="reddit-article" href="/results/<%= value.data.subreddit %>/<%= value.data.id %>"><%= redditResults[i].data.title %></a>
-              <br>
-              <label class="reddit-score pull-right"><%= redditResults[i].data.score %>  <i id="score" class="glyphicon glyphicon-thumbs-up"></i></label>
-            </td>
-          </tr>
-          <% }); %>
+            <% redditResults.forEach(function(value,i){ %>
+            <tr>
+              <td class="reddit-news">
+                <label class="pull-right domain-name"><%= redditResults[i].data.domain %></label>
+                <br>
+                <a class="reddit-article" href="/results/<%= value.data.subreddit %>/<%= value.data.id %>"><%= redditResults[i].data.title %></a>
+                <br>
+                <label class="reddit-score pull-right"><%= redditResults[i].data.score %>  <i id="score" class="glyphicon glyphicon-thumbs-up"></i></label>
+              </td>
+            </tr>
+            <% }); %>
         </table>
       </div>
     </div>
   <% } %>
 
   <!-- right side of page -->
-  <% if(pics == []){ %>
-    <h4>There weren't any results for your search from this source.</h4>
+  <% if (pics.length < 1){ %>
+    <div id="pic-column" class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 hidden-xs">
+      <h4>There seems to be nothing here.</h4>
+    </div>
   <% }else{ %>
     <div id="pic-column" class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 hidden-xs">
       <!-- row for photo feed -->
       <div id="pic-row" class="row">
-      <% pics.forEach(function(value,i){ %>
-        <div class="insta-div">
-          <p class="insta-user"><a class="name-link" href="https://www.instagram.com/<%= pics[i].user.username %>"><%= pics[i].user.username %></a></p>
-          <a href="<%= pics[i].link %>"><img class="insta-pic" src="<%= pics[i].images.thumbnail.url %>"></a>
-          <p><small class="insta-likes pull-right"><%= pics[i].likes.count %>  <i class="glyphicon glyphicon-star"></i></small></p>
-        </div>
-      <% }); %>
+        <% pics.forEach(function(value,i){ %>
+          <div class="insta-div">
+            <p class="insta-user"><a class="name-link" href="https://www.instagram.com/<%= pics[i].user.username %>"><%= pics[i].user.username %></a></p>
+            <a href="<%= pics[i].link %>"><img class="insta-pic" src="<%= pics[i].images.thumbnail.url %>"></a>
+            <p><small class="insta-likes pull-right"><%= pics[i].likes.count %>  <i class="glyphicon glyphicon-star"></i></small></p>
+          </div>
+        <% }); %>
+        <h4>There seems to be nothing here.</h4>
       </div>
     </div>
   <% } %>
 
   <!-- twitter data -->
-  <% if(tweetRes == []){ %>
-    <h4>There weren't any results for your search from this source.</h4>
+  <% if (tweetRes.length < 1){ %>
+    <div id="tweet-column" class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 hidden-xs">
+      <h4>There seems to be nothing here.</h4>
+    </div>
   <% }else{ %>
     <div id="tweet-column" class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 hidden-xs">
       <div class="row">
         <div class="table">
           <table id="tweet-table" class="table">
-            <% tweetRes.forEach(function(tweet,i){ %>
-            <tr>
-              <td class="tweet-retrieved">
-                <img class="avatar" src="<%= tweet.user.profile_image_url_https %>">
-                <label class="twitter-user">  <strong><a class="screen-name" href="https://www.twitter.com/<%= tweet.user.screen_name %>"><%= tweet.user.name %></a></strong>
-                <br>
-                <small class="user-tag">@<%= tweet.user.screen_name %></small>
-                </label>
-                <p class="twitter"><%= tweet.text %></p>
-                <p class="fav-retweet"><i id="retweet" class="glyphicon glyphicon-retweet"></i>  <%= tweet.retweet_count %> <strong>|</strong> <i id="fav" class="glyphicon glyphicon-star"></i>  <%= tweet.favorite_count %>
-                <small class="date pull-right"><%= tweet.created_at %></small></p>
-              </td>
-            </tr>
-            <% }); %>
+              <% tweetRes.forEach(function(tweet,i){ %>
+              <tr>
+                <td class="tweet-retrieved">
+                  <img class="avatar" src="<%= tweet.user.profile_image_url_https %>">
+                  <label class="twitter-user">  <strong><a class="screen-name" href="https://www.twitter.com/<%= tweet.user.screen_name %>"><%= tweet.user.name %></a></strong>
+                  <br>
+                  <small class="user-tag">@<%= tweet.user.screen_name %></small>
+                  </label>
+                  <p class="twitter"><%= tweet.text %></p>
+                  <p class="fav-retweet"><i id="retweet" class="glyphicon glyphicon-retweet"></i>  <%= tweet.retweet_count %> <strong>|</strong> <i id="fav" class="glyphicon glyphicon-star"></i>  <%= tweet.favorite_count %>
+                  <small class="date pull-right"><%= tweet.created_at %></small></p>
+                </td>
+              </tr>
+              <% }); %>
           </table>
         </div>
       </div>
@@ -73,7 +79,103 @@
   <% } %>
 
 <!-- TODO: Error handling for null returns of arrays -->
+<!-- mobile layout modal triggers -->
+<div class="row">
+  <div class="col-xs-12 visible-xs-block mobile-triggers">
 
+    <!-- top news article and news button -->
+    <div class="top-story-mobile">
+      <p class="top-domain pull-left"><%= redditResults[0].data.domain %>  <strong>|</strong>  <label class="top-reddit-score"><%= redditResults[0].data.score %>  <i id="top-score" class="glyphicon glyphicon-thumbs-up"></i></label></p>
+      <hr>
+      <a class="top-reddit-article" href="/results/<%= redditResults[0].data.subreddit %>/<%= redditResults[0].data.id %>"><%= redditResults[0].data.title %></a>
+    </div>
+    <a href="#newsModal" class="btn btn-lg btn-block btn-primary" data-toggle="modal">More Articles</a>
+
+    <!-- first instagram photo and button -->
+    <div class="first-pic-mobile">
+      <a class="first-name-link" href="https://www.instagram.com/<%= pics[0].user.username %>"><%= pics[0].user.username %></a>
+      <small class="insta-likes-mobile pull-right"><%= pics[0].likes.count %>  <i class="glyphicon glyphicon-star"></i></small>
+      <br>
+      <a href="<%= pics[0].link %>"><img class="insta1" src="<%= pics[0].images.thumbnail.url %>"></a>
+    </div>
+    <a href="#picsModal" class="btn btn-lg btn-block btn-success" data-toggle="modal">More Photos</a>
+
+      <!-- first tweet and button -->
+      <div class="first-tweet-mobile">
+        <label class="first-twitter-user">  <strong><a class="screen-name" href="https://www.twitter.com/<%= tweetRes[0].user.screen_name %>"><%= tweetRes[0].user.name %></a></strong></label>
+        <small class="first-user-tag">@<%= tweetRes[0].user.screen_name %></small>
+        <p class="first-twitter"><%= tweetRes[0].text %></p>
+        <p class="first-fav-retweet"><i id="retweet" class="glyphicon glyphicon-retweet"></i>  <%= tweetRes[0].retweet_count %> <strong>|</strong> <i id="fav" class="glyphicon glyphicon-star"></i>  <%= tweetRes[0].favorite_count %>
+        <small class="date pull-right"><%= tweetRes[0].created_at %></small></p>
+      </div>
+    <a href="#tweetsModal" class="btn btn-lg btn-block btn-info" data-toggle="modal">More Tweets</a>
+  </div>
+</div>
+
+  <!-- news modal -->
+  <div id="newsModal" class="modal fade">
+  <% if (redditResults != []) { %>
+  <% redditResults.forEach(function(value,i){ %>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+              <label class="domain-name"><%= redditResults[i].data.domain %></label>
+          </div>
+          <div id="newsMod-body" class="modal-body">
+              <br>
+              <a class="reddit-article" href="/results/<%= value.data.subreddit %>/<%= value.data.id %>"><%= redditResults[i].data.title %></a>
+              <br>
+              <label class="reddit-score pull-right"><%= redditResults[i].data.score %>  <i id="score" class="glyphicon glyphicon-thumbs-up"></i></label>
+          </div>
+          </div>
+        </div>
+        <% }); %>
+      <%  }else{ %>
+        <h4>There doesn't seem to be anything here.</h4>
+      <% } %>
+    </div>
+
+  <!-- photos modal -->
+  <div id="picsModal" class="modal fade">
+  <% pics.forEach(function(value,i){ %>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+          <p class="insta-user"><a class="name-link" href="https://www.instagram.com/<%= pics[i].user.username %>"><%= pics[i].user.username %></a></p>
+        </div>
+        <div id="picMod-body" class="modal-body">
+          <a href="<%= pics[i].link %>"><img class="instaMod-pic" src="<%= pics[i].images.low_resolution.url %>"></a>
+          <p><small class="insta-likes-mobile pull-right"><%= pics[i].likes.count %>  <i class="glyphicon glyphicon-star"></i></small></p>
+        </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+
+  <!-- tweets modal -->
+  <div id="tweetsModal" class="modal fade">
+  <% tweetRes.forEach(function(tweet,i){ %>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+          <label class="twitter-user">  <strong><a class="screen-name" href="https://www.twitter.com/<%= tweet.user.screen_name %>"><%= tweet.user.name %></a></strong>
+        </div>
+        <div id="tweetMod-body" class="modal-body">
+          <img class="avatar" src="<%= tweet.user.profile_image_url_https %>">
+          <small class="user-tag">@<%= tweet.user.screen_name %></small>
+          <br>
+          </label>
+          <p class="twitter"><%= tweet.text %></p>
+          <p class="fav-retweet"><i id="retweet" class="glyphicon glyphicon-retweet"></i>  <%= tweet.retweet_count %> <strong>|</strong> <i id="fav" class="glyphicon glyphicon-star"></i>  <%= tweet.favorite_count %>
+          <small class="date pull-right"><%= tweet.created_at %></small></p>
+        </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
 
 </div>
 

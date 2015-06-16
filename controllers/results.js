@@ -7,6 +7,7 @@ var db = require('../models');
 var async = require('async');
 var Twitter = require('twitter');
 var Instagram = require('instagram-node-lib');
+var moment = require('moment');
 
 // middleware
 router.use(bodyParser.urlencoded({extended: false}));
@@ -100,14 +101,13 @@ router.get('/',function(req,res){
   var renderPage = function(err){
     if(err){
       res.render('main/error');
-      // throw err;
+      throw err;
     }else{
-      res.render('results/index');
+      res.render('results/index', locals);
     }
-      // res.send(locals);
   };
 
-  // Redirect back to homepage and display message if not logged in.
+  // On query, asynchronously call query functions, then load page.
   async.parallel([getRedditNewsData,getTweets,getPics],renderPage);
 }); // Close GET.
 
