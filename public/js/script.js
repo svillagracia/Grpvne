@@ -2,18 +2,35 @@ $(function(){
 
   // AJAX call to remove article
   $('.remove').on('click',function(event){
-    event.preventDefault();
     var removeButton = $(this);
-    if(confirm('Would you really like to remove this article?'));
-      var myUrl = $(this).attr('href');
-      $.ajax({
-        method:'DELETE',
-        url:myUrl,
-      }).done(function(data){
-        removeButton.closest('tr').fadeOut(1500,function(){
-          $(this).remove(); // Fade out article on profile page.
+    event.preventDefault();
+    swal({
+      title: 'Are you sure?',
+      text: 'Click "Yes" to remove this article from your Trellis.',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes",
+      cancelButtonText: "Cancel",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    },
+    function(isConfirm) {
+      if (isConfirm) {
+        swal('Pruned!', 'You have removed the article from your Trellis.', 'success');
+        var myUrl = removeButton.attr('href');
+        $.ajax({
+          method:'DELETE',
+          url:myUrl,
+        }).done(function(data){
+          removeButton.closest('tr').fadeOut(1500,function(){
+            removeButton.remove(); // Fade out article on profile page.
+          });
         });
-      });
+      } else{
+        swal('Cancelled', 'The article is still saved in your Trellis.', 'error');
+      }
+    });
   });
 
   // AJAX call to save article.
@@ -26,6 +43,7 @@ $(function(){
       url:myUrl,
       data:myData
     }).done(function(data){
+      swal('Article Saved!', 'Head to your Trellis to read it if you\'re saving it for later!', 'success');
       $('#trellis-form').fadeOut(1000); // Fade out save button on show page.
     });
   });
