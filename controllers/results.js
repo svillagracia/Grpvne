@@ -113,6 +113,7 @@ router.get('/',function(req,res){
 
 // GET for r/worldnews show page.
 router.get('/:sub/:id',function(req,res){
+  var user = req.getUser();
   var query = req.params.id;
     var url = 'http://www.reddit.com/r/'+req.params.sub+'/comments/'+query+'.json';
       request(url,function(error,response,data){
