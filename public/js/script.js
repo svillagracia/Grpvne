@@ -1,5 +1,14 @@
 $(function(){
 
+  // Prevent user from entering an empty string in the search form
+  $('#query').on('submit', function(event){
+    var form = $('.search-box').value
+    if (form == undefined) {
+      event.preventDefault();
+      swal('Invalid', 'Please enter a search term.', 'error');
+    }
+  });
+
   // AJAX call to remove article
   $('.remove').on('click',function(event){
     var removeButton = $(this);
@@ -27,7 +36,7 @@ $(function(){
             removeButton.remove(); // Fade out article on profile page.
           });
         });
-      } else{
+      } else {
         swal('Cancelled', 'The article is still saved in your Trellis.', 'error');
       }
     });
