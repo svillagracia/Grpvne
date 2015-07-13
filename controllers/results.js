@@ -7,6 +7,7 @@ var db = require('../models');
 var async = require('async');
 var Twitter = require('twitter');
 var Instagram = require('instagram-node-lib');
+var moment = require('moment');
 
 // middleware
 router.use(bodyParser.urlencoded({extended: false}));
@@ -25,7 +26,6 @@ var client = new Twitter({
 
 // GET query entered - Begins call to Reddit, Twitter, and Instagram.
 router.get('/',function(req,res){
-  if(req.getUser()){
 
   // Object to push data into.
   var locals={};
@@ -90,8 +90,8 @@ router.get('/',function(req,res){
     Instagram.tags.recent({
       name: req.query.q,
       complete: function(data){
-        // console.log(data);
         locals.pics=data;
+        // console.log(locals.pics);
         next();
       }
     });
@@ -101,26 +101,19 @@ router.get('/',function(req,res){
   var renderPage = function(err){
     if(err){
       res.render('main/error');
-      // throw err;
+      throw err;
     }else{
-      res.render('results/index',locals);
-      // res.send(locals);
+      res.render('results/index', locals);
     }
   };
 
-  // Redirect back to homepage and display message if not logged in.
+  // On query, asynchronously call query functions, then load page.
   async.parallel([getRedditNewsData,getTweets,getPics],renderPage);
-  }else{
-    req.flash('danger','Please log in to access Grpvne.');
-    res.render('profile/index');
-  }
-
 }); // Close GET.
 
 // GET for r/worldnews show page.
 router.get('/:sub/:id',function(req,res){
   var user = req.getUser();
-  if(user){
   var query = req.params.id;
     var url = 'http://www.reddit.com/r/'+req.params.sub+'/comments/'+query+'.json';
       request(url,function(error,response,data){
@@ -131,6 +124,7 @@ router.get('/:sub/:id',function(req,res){
           .then(function(trellis){
             trellis.forEach(function(story){
               if(story.userId === user.id){
+                console.log('Story: ', story.userId, 'User: ', user.id);
                 object.matched = true;
               }
             });
@@ -143,10 +137,6 @@ router.get('/:sub/:id',function(req,res){
           console.log('error',error,response);
         }
       });
-  }else{
-    req.flash('danger','Please log in to access Grpvne.');
-    res.redirect('/');
-  }
 });
 
 router.get('/noresults',function(req,res){
