@@ -131,6 +131,7 @@ router.get('/:sub/:id',function(req,res){
           .then(function(trellis){
             trellis.forEach(function(story){
               if(story.userId === user.id){
+                console.log('Story: ', story.userId, 'User: ', user.id);
                 object.matched = true;
               }
             });
